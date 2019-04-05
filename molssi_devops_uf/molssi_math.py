@@ -1,42 +1,41 @@
 """
 molssi_math.py
-A sample repository for the MolSSI Workshop at UF.
+A sample repository for the MolSSI workshop at UF.
 
-Handles the primary functions
+Some math functions.
 """
 
 
 def mean(num_list):
-    	"""
-	Calculate the mean/average of a list of numbers.
-	
-	Parameters
-	---------
-	num_list : list 
-		The list to take advantage of 
-	Returns
-	--------
-	mean_list : float
-		The mean of the list
-	"""
-    	mean_list = sum(num_list) / len(num_list)
+    """
+    calculate the mean/average of a list of numbers.
+   
+    Parameters
+    __________
+    num_list : list
+         The list to take the average of
 
-    	return mean_list
+    Returns
+    _______
+  
+    mean_list : float
+        The mean of the list
+    """
+    # check if input is type list
+    if not isinstance(num_list, list):
+        raise TypeError('Invalid input %s - Input must be type list' %(num_list))
 
-	#Check that input is type list
-	if not isinstance(num_list, list):
-		raise TypeError('Invalid input %s - Input must be type list' %(num_list))
-	
-	#Check that list is not empty
-	if len(num_list) == []:
-		raise ValueError('Cannot calculate the mean of an empty list.')
 
-	try:
-		mean_list = sum(num_list)/len(num_list)
-	except TypeError:
-		raise TypeError('Cannot calculate mean of list - all list elements must be numeric')
+    # check that list is not empty
+    if len(num_list) == []:
+        raise ValueError('cannot calculate mean of empty list.')
+    try:
+       mean_list = sum(num_list)/len(num_list)
+    except TypeError:
+           raise TypeError('Cannot calculate mean of a list - all list elements must be numeric')
 
-	return mean_list
+    return mean_list
+
 
 def canvas(with_attribution=True):
     """
@@ -64,3 +63,4 @@ def canvas(with_attribution=True):
 if __name__ == "__main__":
     # Do something if this file is invoked on its own
     print(canvas())
+
