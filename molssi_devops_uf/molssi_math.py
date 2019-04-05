@@ -23,6 +23,20 @@ def mean(num_list):
 
     	return mean_list
 
+	#Check that input is type list
+	if not isinstance(num_list, list):
+		raise TypeError('Invalid input %s - Input must be type list' %(num_list))
+	
+	#Check that list is not empty
+	if len(num_list) == []:
+		raise ValueError('Cannot calculate the mean of an empty list.')
+
+	try:
+		mean_list = sum(num_list)/len(num_list)
+	except TypeError:
+		raise TypeError('Cannot calculate mean of list - all list elements must be numeric')
+
+	return mean_list
 
 def canvas(with_attribution=True):
     """
